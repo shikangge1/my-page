@@ -162,6 +162,7 @@
 
 </div>
 <!-- 广告弹层（可点击跳转） -->
+<!-- 广告弹层（带倒计时） -->
 <div id="adModal" style="
     display:none;
     position:fixed;
@@ -173,12 +174,26 @@
     justify-content:center;
     align-items:center;
 ">
-    <a id="adLink" href="#" target="_blank">
-        <img id="adImage"
-             src=""
-             style="max-width:90%;max-height:90%;border-radius:12px;">
-    </a>
+    <div style="position:relative;">
+        <span id="countdown" style="
+            position:absolute;
+            top:8px;
+            right:8px;
+            background:rgba(0,0,0,0.6);
+            color:#fff;
+            padding:4px 8px;
+            border-radius:6px;
+            font-size:14px;
+        ">3 秒后跳转</span>
+
+        <a id="adLink" href="#" target="_blank">
+            <img id="adImage"
+                 src=""
+                 style="max-width:90vw;max-height:90vh;border-radius:12px;">
+        </a>
+    </div>
 </div>
+
 
 <script>
 let targetUrl = "";
