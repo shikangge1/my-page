@@ -216,21 +216,42 @@
 
 <script>
 let targetUrl = "";
+let timer = null;
+let seconds = 8;   // 👈 倒计时秒数（这里改）
 
 function showAd(target, adImg, adUrl) {
     targetUrl = target;
+    seconds = 8;   // 👈 每次弹出重置为 8 秒
 
     document.getElementById("adImage").src = adImg;
     document.getElementById("adLink").href = adUrl;
-
+    document.getElementById("countdown").innerText = seconds + " 秒后跳转";
     document.getElementById("adModal").style.display = "flex";
 
-    // 不点广告，3 秒后跳目标网站
-    setTimeout(function () {
-        window.location.href = targetUrl;
-    }, 3000);
+    clearInterval(timer);
+
+    timer = setInterval(function () {
+        seconds--;
+        if (seconds <= 0) {
+            clearInterval(timer);
+            window.location.href = targetUrl;
+        } else {
+            document.getElementById("countdown").innerText =
+                seconds + " 秒后跳转";
+        }
+    }, 1000);
 }
+
+// 关闭广告
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("closeAd").onclick = function (e) {
+        e.stopPropagation();
+        clearInterval(timer);
+        document.getElementById("adModal").style.display = "none";
+    };
+});
 </script>
+
 
 </body>
 </html>
