@@ -162,7 +162,7 @@
 
 </div>
 <!-- 广告弹层（可点击跳转） -->
-<!-- 广告弹层（带倒计时） -->
+<!-- 广告弹层（可关闭 + 倒计时） -->
 <div id="adModal" style="
     display:none;
     position:fixed;
@@ -175,6 +175,24 @@
     align-items:center;
 ">
     <div style="position:relative;">
+
+        <!-- 关闭按钮 -->
+        <span id="closeAd" style="
+            position:absolute;
+            top:-10px;
+            right:-10px;
+            width:32px;
+            height:32px;
+            line-height:32px;
+            text-align:center;
+            background:#000;
+            color:#fff;
+            border-radius:50%;
+            font-size:18px;
+            cursor:pointer;
+        ">×</span>
+
+        <!-- 倒计时 -->
         <span id="countdown" style="
             position:absolute;
             top:8px;
@@ -186,6 +204,7 @@
             font-size:14px;
         ">3 秒后跳转</span>
 
+        <!-- 广告图 -->
         <a id="adLink" href="#" target="_blank">
             <img id="adImage"
                  src=""
