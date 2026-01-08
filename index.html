@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>补单平台推荐</title>
+    <title>平台推荐</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         * {
@@ -106,7 +106,16 @@
 
     <div class="item">
         <div class="item-title">① 追光者 | 啪啪啪福利视频（重点推荐）</div>
-        <a href="https://nart.cc/" class="btn">》》 注册 - 登录 》》</a>
+        <a href="javascript:void(0)"
+   class="btn"
+   onclick="showAd(
+     'https://nart.cc/',
+     'https://你的域名.com/ad.jpg',
+     'https://广告点击跳转.com'
+   )">
+   》》 注册 - 登录 》》
+</a>
+
     </div>
 
     <div class="item">
@@ -152,6 +161,42 @@
     </div>
 
 </div>
+<!-- 广告弹层（可点击跳转） -->
+<div id="adModal" style="
+    display:none;
+    position:fixed;
+    top:0;left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+    z-index:9999;
+    justify-content:center;
+    align-items:center;
+">
+    <a id="adLink" href="#" target="_blank">
+        <img id="adImage"
+             src=""
+             style="max-width:90%;max-height:90%;border-radius:12px;">
+    </a>
+</div>
+
+<script>
+let targetUrl = "";
+
+function showAd(target, adImg, adUrl) {
+    targetUrl = target;
+
+    document.getElementById("adImage").src = adImg;
+    document.getElementById("adLink").href = adUrl;
+
+    document.getElementById("adModal").style.display = "flex";
+
+    // 不点广告，3 秒后跳目标网站
+    setTimeout(function () {
+        window.location.href = targetUrl;
+    }, 3000);
+}
+</script>
 
 </body>
 </html>
