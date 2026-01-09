@@ -1,5 +1,38 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+    <style>
+.notice {
+    background-image: url("https://shikangge1.github.io/my-page/ad1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 20px 16px;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 18px;
+    position: relative;
+}
+
+/* 黑色半透明遮罩，让字清楚 */
+.notice::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    border-radius: 12px;
+    z-index: 0;
+}
+
+/* 保证文字在最上层 */
+.notice * {
+    position: relative;
+    z-index: 1;
+}
+</style>
+
 <head>
     <meta charset="UTF-8">
     <title>平台推荐</title>
